@@ -1,93 +1,122 @@
-# Will This Visitor Buy? — Purchase Intent Prediction
+# 🛒 Will This Visitor Buy? — Real-Time Purchase Intent Prediction
 
-An end-to-end Machine Learning application that predicts whether an online shopping visitor is likely to make a purchase based on their browsing session behavior.
+**A Machine Learning web application that predicts whether an online shopping visitor is likely to make a purchase based on their browsing session behavior.**
 
-## 🚀 Live Demo
+🌐 **Live Demo:** [Try the Purchase Intent Predictor](https://purchase-intent-prediction-j7zjqdeud49csfmhwepqt7.streamlit.app/)
 
-**Try the application:** [Add your public Streamlit app URL]
+## 📌 Project Overview
 
-**GitHub Repository:** [Add your GitHub repository URL]
+This project aims to predict online shoppers' purchase intentions using session-based behavioral data.
 
-**App Screenshot:** Add a screenshot of the working Streamlit interface here.
+The model analyzes browsing activity, page values, visitor type, traffic source, and other session features to estimate the probability of a purchase.
 
-## 🎯 Problem
+The trained model is deployed as an interactive web application using Streamlit.
 
-Online stores receive thousands of visitor sessions, but not every visitor completes a purchase. Identifying visitors with high purchase intent can help businesses improve customer engagement and make better marketing decisions.
+## 🎯 Dataset
 
-This project uses Machine Learning to estimate the probability that a visitor will make a purchase.
+- **Source:** UCI Machine Learning Repository
+- **Dataset:** Online Shoppers Purchasing Intention
+- **Total Records:** 12,330 sessions
+- **Target Variable:** `Revenue`
+- **Task:** Binary Classification
 
-## 📊 Dataset
+## 🧠 Machine Learning Approach
 
-- Dataset: UCI Online Shoppers Purchasing Intention
-- Total sessions: 12,330
-- Target variable: `Revenue`
-- Task: Binary Classification
+The project includes:
 
-## 🧠 Model
+- Data preprocessing and feature engineering.
+- Handling missing values and categorical features.
+- Class imbalance handling using **SMOTENC**.
+- Model evaluation and hyperparameter tuning.
+- Cross-validation and threshold optimization.
+- Feature importance analysis.
 
-- Best model: HistGradientBoostingClassifier
-- Preprocessing: Categorical and numerical feature handling
-- Imbalanced data handling: SMOTENC
-- Threshold selection: Cross-validation using training data
-- Selected decision threshold: 0.327
+**Final Model:** HistGradientBoostingClassifier inside an Imbalanced-learn Pipeline.
 
-## 📈 Model Performance
+**Selected Classification Threshold:** 0.327
 
-| Metric | Best Model |
+## 📊 Model Performance
+
+Evaluation results on the test set:
+
+| Metric | Score |
 |---|---:|
 | Accuracy | 89.13% |
-| Purchase Precision | 63.13% |
-| Purchase Recall | 71.73% |
-| Purchase F1-score | 67.16% |
+| Precision | 63.13% |
+| Recall | 71.73% |
+| F1-score | 67.16% |
 | ROC-AUC | 93.29% |
 | Average Precision | 74.66% |
 
-### Baseline vs. Best Model
+### Confusion Matrix
 
-| Metric | Baseline Model | Best Model |
+| | Predicted: No Purchase | Predicted: Purchase |
 |---|---:|---:|
-| Accuracy | To be measured | 89.13% |
-| Purchase Precision | To be measured | 63.13% |
-| Purchase Recall | To be measured | 71.73% |
-| Purchase F1-score | To be measured | 67.16% |
-| ROC-AUC | To be measured | 93.29% |
+| Actual: No Purchase | 1,924 | 160 |
+| Actual: Purchase | 108 | 274 |
 
-*Baseline metrics will be added after evaluating the baseline model on the same test set.*
+### Feature Importance
 
-## 🔍 Key Findings
+The most influential features were:
+1. PageValues
+2. Month
+3. ExitRates
+4. ProductRelated_Duration
+5. Administrative_Duration
 
-- `PageValues` was the most influential feature according to Permutation Importance.
-- `Month` was the second most influential feature.
-- The model achieved a ROC-AUC of 0.9329.
-- The selected threshold was 0.327, based on training cross-validation predictions.
+## 🖥️ Application
 
-## 🛠️ Technologies
+The Streamlit application allows users to:
 
-Python, Pandas, NumPy, Scikit-learn, Imbalanced-learn, Joblib, Streamlit, Matplotlib.
+- Enter visitor session information.
+- Get a predicted purchase probability.
+- Identify whether the visitor shows purchase intent.
+- View an interactive prediction result.
 
-## ⚙️ How to Run Locally
+## 🛠️ Technologies & Libraries
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Scikit-learn
+- Imbalanced-learn
+- Joblib
+- Streamlit
+- UCI ML Repository (`ucimlrepo`)
+
+## 🚀 Run Locally
 
 1. Clone the repository:
 
    ```bash
-   git clone [YOUR_GITHUB_REPOSITORY_URL]
-   cd Purchase_Intent_App
+   git clone YOUR_GITHUB_REPOSITORY_URL
    ```
 
-2. Install dependencies:
+2. Navigate to the project folder:
+
+   ```bash
+   cd Purchase-Intent-Prediction
+   ```
+
+3. Install dependencies:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Run the Streamlit application:
+4. Run the application:
 
    ```bash
    streamlit run app.py
    ```
 
-4. Open the local URL displayed in your terminal.
+## 🌐 Live Application
 
-## ⚠️ Disclaimer
+Try the deployed application:
 
-Predictions are estimates generated by a Machine Learning model and are not guarantees of actual customer behavior.
+**[Will This Visitor Buy? — Live Demo](https://purchase-intent-prediction-j7zjqdeud49csfmhwepqt7.streamlit.app/)**
+
+---
+
+**Developed as a Machine Learning project using Python and Streamlit.**
